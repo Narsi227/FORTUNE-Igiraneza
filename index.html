@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FORTUNE Igiraneza</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(270deg, #00c6ff, #6a11cb, #2575fc);
+      background-size: 600% 600%;
+      animation: backgroundMove 12s ease infinite;
+    }
+
+    .card-wrapper {
+      position: relative;
+    }
+
+    .card {
+      background: white;
+      padding: 40px 45px;
+      border-radius: 22px;
+      width: 580px;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      animation: fadeIn 1.8s ease;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.3s ease;
+    }
+
+    /* === PROFILE IMAGE === */
+    .profile-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #2575fc;
+      margin-bottom: 15px;
+      animation: imgGlow 3s infinite;
+    }
+
+    @keyframes imgGlow {
+      0% { box-shadow: 0 0 10px rgba(37,117,252,0.4); }
+      50% { box-shadow: 0 0 30px rgba(106,17,203,0.8); }
+      100% { box-shadow: 0 0 10px rgba(37,117,252,0.4); }
+    }
+
+    h1 {
+      color: #2575fc;
+      margin-bottom: 10px;
+      font-size: 30px;
+    }
+
+    h2 {
+      margin-top: 26px;
+      margin-bottom: 12px;
+      font-size: 20px;
+      color: #6a11cb;
+    }
+
+    p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    .contact {
+      margin-top: 14px;
+      font-weight: bold;
+      color: #6a11cb;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 10px 22px;
+      background: linear-gradient(135deg, #2575fc, #6a11cb);
+      color: white;
+      border-radius: 25px;
+      font-size: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* === LISTS === */
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .chip {
+      padding: 8px 14px;
+      border-radius: 18px;
+      font-size: 13px;
+      background: #f1f4ff;
+      color: #2575fc;
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .chip:hover {
+      transform: scale(1.08);
+      background: #e0e7ff;
+    }
+
+    /* === CERTIFICATES === */
+    .cert {
+      background: linear-gradient(135deg, #eef2ff, #f9f9ff);
+      padding: 10px 16px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .cert:hover {
+      transform: translateY(-4px);
+    }
+
+    /* === SCROLLING TEXT === */
+    .scroll {
+      position: absolute;
+      font-weight: bold;
+      color: rgba(255,255,255,0.9);
+      font-size: 14px;
+      letter-spacing: 3px;
+      white-space: nowrap;
+    }
+
+    .top {
+      top: -30px;
+      left: 0;
+      animation: scrollRight 10s linear infinite;
+    }
+
+    .bottom {
+      bottom: -30px;
+      right: 0;
+      animation: scrollLeft 10s linear infinite;
+    }
+
+    .left {
+      left: -80px;
+      top: 0;
+      writing-mode: vertical-rl;
+      animation: scrollDown 8s linear infinite;
+    }
+
+    .right {
+      right: -80px;
+      bottom: 0;
+      writing-mode: vertical-rl;
+      animation: scrollUp 8s linear infinite;
+    }
+
+    /* === ANIMATIONS === */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes backgroundMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes scrollRight {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(100%); }
+    }
+
+    @keyframes scrollLeft {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+
+    @keyframes scrollDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(100%); }
+    }
+
+    @keyframes scrollUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(-100%); }
+    }
+
+    .glow {
+      animation: glowPulse 2.5s infinite;
+    }
+
+    @keyframes glowPulse {
+      0% { box-shadow: 0 0 20px rgba(37,117,252,0.4); }
+      50% { box-shadow: 0 0 40px rgba(106,17,203,0.7); }
+      100% { box-shadow: 0 0 20px rgba(37,117,252,0.4); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card-wrapper">
+    <div class="scroll top">9T_DES • 9T_DES • 9T_DES • 9T_DES</div>
+    <div class="scroll bottom">9T_DES • 9T_DES • 9T_DES • 9T_DES</div>
+    <div class="scroll left">9T_DES • 9T_DES • 9T_DES</div>
+    <div class="scroll right">9T_DES • 9T_DES • 9T_DES</div>
+
+    <div class="card glow" id="card">
+
+      <!-- IMAGE -->
+      <img src="night.jpg" alt="FORTUNE Igiraneza" class="profile-img">
+
+      <h1>FORTUNE Igiraneza</h1>
+
+      <p>
+        Full Stack Developer passionate about building modern,
+        high-performance, and visually attractive digital solutions.
+      </p>
+
+      <p class="contact">
+        📞 +250 795 004 563<br>
+        📧 igiranezafortune01@gmail.com
+      </p>
+
+      <h2>Experience & Skills</h2>
+      <div class="list">
+        <span class="chip">PHP</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">HTML</span>
+        <span class="chip">Python (Medium)</span>
+        <span class="chip">React.js</span>
+        <span class="chip">Graphic Design (Photos & Logos)</span>
+      </div>
+
+      <h2>Languages</h2>
+      <div class="list">
+        <span class="chip">Kinyarwanda (Fluent)</span>
+        <span class="chip">English (Fluent)</span>
+        <span class="chip">Kiswahili (Better)</span>
+        <span class="chip">French (Good)</span>
+        <span class="chip">Chinese (Improving)</span>
+      </div>
+
+      <h2>Certificates</h2>
+      <div class="list">
+        <div class="cert">WEI English Certificate</div>
+        <div class="cert">Certificate in Coding – Nova Services</div>
+      </div>
+
+      <span class="badge">Available for Part-Time Work</span>
+    </div>
+  </div>
+
+  <script>
+    const card = document.getElementById("card");
+
+    document.addEventListener("mousemove", (e) => {
+      const x = (window.innerWidth / 2 - e.pageX) / 25;
+      const y = (window.innerHeight / 2 - e.pageY) / 25;
+      card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+    });
+
+    document.addEventListener("mouseleave", () => {
+      card.style.transform = "rotateY(0) rotateX(0)";
+    });
+  </script>
+</body>
+</html>
